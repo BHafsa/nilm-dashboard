@@ -36,6 +36,23 @@ from . import appbuilder, db
     Application wide 404 error handler
 """
 
+from flask_appbuilder import AppBuilder, BaseView, expose, has_access
+from app import appbuilder
+
+
+class Home(BaseView):
+
+    default_view = 'home'
+
+    @expose('/home/')
+    @has_access
+    def home(self):
+
+        self.update_redirect()
+        return self.render_template('home.html')
+
+appbuilder.add_view(Home, "Home", category='Home')
+
 
 @appbuilder.app.errorhandler(404)
 def page_not_found(e):
