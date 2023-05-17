@@ -2,7 +2,7 @@ from flask_appbuilder import Model
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 
-
+from datetime import datetime
 
 
 class NilmModel(Model):
@@ -46,4 +46,9 @@ class History(Model):
     """
     A class to save the hsitorical data of the users
     """
-    id_user = Column(Integer, ForeignKey('appliance.id'), nullable = False)
+    id_user = Column(Integer, ForeignKey('user.id'), nullable = False)
+    consumption_data = Column(float, nullable = False)
+    time = Column(datetime,  nullable = False)
+
+
+

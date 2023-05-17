@@ -1,0 +1,65 @@
+{% extends './base.html' %}{{super()}}
+
+{% block content %}
+
+    {%if current_user.is_anonymous %}
+
+
+
+            <center>
+                <h1 class="h3" style="margin:50px">
+                    Good bye! We hope we will see you again soon ...<br/><br/>
+                    <p style="margin: 10px;">
+        
+                        You are currently logged out ... <br/>
+                        Click <a href="/login">Here</a> to login again 
+                        
+        
+                    </p>
+                </h1>
+        
+
+        </center>
+            
+
+
+
+
+   
+
+    {% else %}
+
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <div style="margin-left: 50px;">
+            <h1 class="h3 ">
+                Hello, <br/><br/>
+    
+                <p style="margin-left: 10px;margin-right: 10px;">
+    
+                    Congrats for making it this far with the case-study course! <br/><br/>
+    
+                    The second part will investigate how the developed models can be used and presented in nice web platform. 
+                    There is a set of functionnalities that you must implement to pass the second part. For each of one (in the menuon the left), 
+                    you will find a set of guiding instructions about what is expected from your group. The freedom is left to the group to design the appropriate 
+                    inetrafces as they want as long as the fucntionality is fulfilled.<br/><br/>
+    
+                    If you did not save pre-trained models from the first part, a set of pre-trained models can be found in the following <a href="https://drive.google.com/drive/folders/103auWjrVap1_h-zO9lUKn25LQCPbLVq1?usp=sharing">link</a>. 
+                    Feel free to download the models and use them. A function returning the architecure of each of the available models can be found in the file app/nilm.py. </br></br>
+    
+                    If you face any problems, please feel free to drop me an E-mail. 
+    
+                </p>
+            
+                All the Best, <br/>
+                Your instructure
+    
+            </h1>
+    
+        </div>
+        
+    </div>
+
+    {% endif %}
+
+        
+{% endblock %}

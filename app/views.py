@@ -42,14 +42,29 @@ from app import appbuilder
 
 class Home(BaseView):
 
-    default_view = 'home'
+    default_view = '/dashboard'
 
-    @expose('/home/')
+
+    @expose('/dashboard/')
     @has_access
     def home(self):
-
         self.update_redirect()
-        return self.render_template('home.html')
+        return self.render_template('dashboard.html')
+
+    @expose('/history/')
+    @has_access
+    def home(self):
+        self.update_redirect()
+        return self.render_template('history.html')
+
+    @expose('/appliance/')
+    @has_access
+    def home(self, appliance_name, model_name=None):
+        """
+        This function allows provides an appliance name that need to be disaggregated and the 
+        """
+
+        return self.render_template('appliance.html', appliance_name)
 
 appbuilder.add_view(Home, "Home", category='Home')
 
