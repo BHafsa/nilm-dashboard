@@ -41,32 +41,44 @@ from app import appbuilder
 
 
 class Home(BaseView):
-
-    default_view = '/dashboard'
-
-
-    @expose('/dashboard/')
-    @has_access
-    def home(self):
+    route_base = '/'
+    @expose('/dashboard')
+    def dashboard(self):
         self.update_redirect()
         return self.render_template('dashboard.html')
 
-    @expose('/history/')
-    @has_access
-    def home(self):
+    @expose('/history/<string:period>')
+    def history(self, period):
         self.update_redirect()
         return self.render_template('history.html')
+    
+    @expose('/leaderboard')
+    def leaderboard(self):
+        self.update_redirect()
+        return self.render_template('leaderboard.html')
+    
+    @expose('/forecast')
+    def forecast(self):
+        self.update_redirect()
+        return self.render_template('forecast.html')
+    
+    @expose('/tips')
+    def tips(self):
+        self.update_redirect()
+        return self.render_template('tips.html')
 
-    @expose('/appliance/')
-    @has_access
-    def home(self, appliance_name, model_name=None):
+    @expose('/appliance/<string:appliance_name>')
+    def appliance(self, appliance_name, model_name=None):
         """
         This function allows provides an appliance name that need to be disaggregated and the 
         """
+        return self.render_template('appliance.html', appliance_name=appliance_name)
+    
+    
 
-        return self.render_template('appliance.html', appliance_name)
+appbuilder.add_view_no_menu(Home())
 
-appbuilder.add_view(Home, "Home", category='Home')
+
 
 
 @appbuilder.app.errorhandler(404)
