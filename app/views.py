@@ -57,8 +57,8 @@ class Home(BaseView):
         self.update_redirect()
         return self.render_template('leaderboard.html')
     
-    @expose('/forecast')
-    def forecast(self):
+    @expose('/forecasting')
+    def forecasting(self):
         self.update_redirect()
         return self.render_template('forecast.html')
     

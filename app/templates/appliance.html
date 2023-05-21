@@ -1,5 +1,25 @@
 {% extends './base.html' %}{{super()}}
 
 {% block content %}
-{{appliance_name}}
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <div style="margin-left: 50px;">
+        <h1 class="h3 ">
+            This is page will have to define the following for the {{appliance_name}}, <br/><br/>
+
+            <p style="margin-left: 10px;margin-right: 10px;">
+
+                1. Allow to upload a csv file of the aggregate power <br/>
+                2. Transfer it to the  backen to be preprocessed then disaggregated <br/>
+                3. Plot the output of the model in JS plot <br/>
+
+            </p>
+        
+
+        </h1>
+
+    </div>
+    
+</div>
+
 {% endblock %}
